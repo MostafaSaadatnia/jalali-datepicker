@@ -1,7 +1,42 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "1b421c8d-b73c-495a-b746-ee0423ee632d"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "jalali-datepicker": {
+      "projectType": "library",
+      "root": "projects/jalali-datepicker",
+      "sourceRoot": "projects/jalali-datepicker/src",
+      "prefix": "jalali-datepicker",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/jalali-datepicker/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/jalali-datepicker/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/jalali-datepicker/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/jalali-datepicker/src/test.ts",
+            "tsConfig": "projects/jalali-datepicker/tsconfig.spec.json",
+            "karmaConfig": "projects/jalali-datepicker/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "jalali-datepicker"
 }
